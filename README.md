@@ -1,7 +1,6 @@
 # 🏦 PRIIPS/KID Regulatory Comparison Chatbot
 
-A **Retrieval-Augmented Generation (RAG)** chatbot that ingests EU PRIIPS KID and UK FCA regulatory documents and answers compliance queries across both frameworks — including side-by-side comparisons of post-Brexit regulatory divergence.
-
+A **Retrieval-Augmented Generation (RAG)** chatbot that ingests EU PRIIPS KID and UK FCA regulatory documents and answers compliance queries across both frameworks. 
 Built as a portfolio project to demonstrate applied GenAI engineering in a financial services context.
 
 ---
@@ -62,8 +61,6 @@ Grounded Answer with Source Attribution
 
 ### Prerequisites
 - Azure account with Azure OpenAI and Azure AI Search resources
-- Google Colab (or local Python 3.10+ environment)
-- Python packages (installed in Cell 1 of the notebook)
 
 ### Azure Resources Required
 1. **Azure OpenAI** with two deployed models:
@@ -82,8 +79,6 @@ os.environ['AZURE_SEARCH_ENDPOINT']  = 'https://xxx.search.windows.net'
 os.environ['AZURE_SEARCH_API_KEY']   = 'your_key'
 os.environ['AZURE_SEARCH_INDEX']     = 'priips-index'
 ```
-
-> ⚠️ **Never commit real API keys to GitHub.** Use environment variables or a `.env` file (already in `.gitignore`).
 
 ---
 
@@ -135,8 +130,6 @@ scenarios, replacing them with past performance data where available...
 
 ## 🔑 Key Design Decisions
 
-**Balanced retrieval** — for comparison queries, the pipeline fetches chunks from each framework separately (`k` per source) rather than globally, ensuring both EU and UK perspectives are always represented in the context window.
-
 **temperature=0** — the LLM is set to fully deterministic mode. For compliance use cases, reproducibility and accuracy take priority over creativity.
 
 **Source attribution** — every answer includes which documents and pages were used, enabling manual verification against source material.
@@ -159,8 +152,6 @@ priips-fca-chatbot/
 
 ## 🗺️ Potential Extensions
 
-- Add more regulatory documents (MiFID II, UCITS KIID, SFDR)
-- Build a Streamlit UI for non-technical users
 - Add evaluation metrics (retrieval precision, answer relevance)
 - Swap `text-embedding-ada-002` for `text-embedding-3-large` for higher accuracy
 - Deploy as an Azure Web App for team access
@@ -171,6 +162,3 @@ priips-fca-chatbot/
 
 **Anastasiya Levina**
 [LinkedIn](https://linkedin.com/in/anastasiya-levina) · [GitHub](https://github.com/levina-ai)
-
-*Data Science for Finance — Nova Information Management School*
-*Former Data Quality Analyst — Leonteq AG (PRIIPS/KID)*
